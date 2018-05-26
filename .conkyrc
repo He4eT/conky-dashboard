@@ -43,9 +43,9 @@ lua_load ~/.conky/conky_dashboard.lua
 lua_draw_hook_pre clock_rings
 
 TEXT
-${voffset 8}${goto -45}${color FFFFFF}${font caviar dreams:size=16}${time %A}${font}${voffset 30}${alignr 170}${color FFFFFF}${font caviar dreams:size=38}${time %e} ${time %b}${font}
-${voffset 40}${font caviar dreams:size=64}${alignr}${time %H}:${time %M}${font} 
-
+${voffset 8}${goto -45}${color FFFFFF}${font caviar dreams:size=16}${time %A}${font}
+${goto 200}${color FFFFFF}${font caviar dreams:size=38}${time %e} ${time %b}${font}
+${voffset 40}${font caviar dreams:size=64}${alignr}${time %H}:${time %M}${font}
 
 ${color FFFFFF}${goto 0}${voffset 65}${cpu cpu0}%
 ${color FFFFFF}${goto 0}CPU
