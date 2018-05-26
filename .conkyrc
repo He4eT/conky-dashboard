@@ -1,0 +1,66 @@
+background no
+update_interval 1
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+override_utf8_locale yes
+
+double_buffer yes
+
+# Window specifications #
+own_window_class Conky
+own_window yes
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_argb_visual yes
+
+border_inner_margin 0
+border_outer_margin 0
+
+minimum_size 450 900
+maximum_width 750
+
+alignment tr
+gap_x 35
+gap_y 35
+
+# Graphics settings #
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+# Text settings #
+use_xft yes
+xftfont caviar dreams:size=14
+xftalpha 0.9
+
+default_color FFFFFF
+
+# Lua Load #
+lua_load ~/.conky/conky_dashboard.lua
+lua_draw_hook_pre clock_rings
+
+TEXT
+${voffset 8}${goto -45}${color FFFFFF}${font caviar dreams:size=16}${time %A}${font}${voffset 30}${alignr 170}${color FFFFFF}${font caviar dreams:size=38}${time %e} ${time %b}${font}
+${voffset 40}${font caviar dreams:size=64}${alignr}${time %H}:${time %M}${font} 
+
+
+${color FFFFFF}${goto 0}${voffset 65}${cpu cpu0}%
+${color FFFFFF}${goto 0}CPU
+${color FFFFFF}${goto 215}${voffset 45}${memperc}%
+${color FFFFFF}${goto 215}RAM
+${color FFFFFF}${goto 70}${voffset -38}${fs_used_perc /}%
+${color FFFFFF}${goto 70}SSD
+${color FFFFFF}${goto 90}${voffset 25}${if_up wlan0}${downspeed wlan0}${endif}
+${color FFFFFF}${goto 90}${if_up wlan0}${upspeed wlan0}${endif} 
+${color FFFFFF}${goto 90}NET
+
+
+${color FFFFFF}${font caviar dreams:size=18}Uptime: ${uptime_short}
+${color FFFFFF}${font caviar dreams:size=18}Processes: ${processes}
+${color FFFFFF}${font caviar dreams:size=18}Running: ${running_processes}
+
+${color FFFFFF}${font caviar dreams:size=18}${alignr}${nodename}
+#${color FFFFFF}${font caviar dreams:size=18}${alignr}${pre_exec cat /etc/issue.net}  $machine
